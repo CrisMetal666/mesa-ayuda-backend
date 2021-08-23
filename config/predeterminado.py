@@ -1,0 +1,2 @@
+APP_ENV_LOCAL = 'local'
+ERROR_404_HELP = False
