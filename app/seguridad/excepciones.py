@@ -1,0 +1,2 @@
+class ExcepcionSinAutorizacion(Exception):
+    pass
