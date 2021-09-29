@@ -2,7 +2,7 @@ from functools import wraps
 
 from flask_jwt_extended import get_jwt
 
-from app.seguridad.excepciones import ExcepcionSinAutorizacion
+from app.comun.excepciones import ExcepcionSinAutorizacion
 
 ROLE_ADMIN = 'ROLE_ADMIN'
 
