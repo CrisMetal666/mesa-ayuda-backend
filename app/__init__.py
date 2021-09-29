@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_marshmallow import Marshmallow
 from flask_migrate import Migrate
@@ -15,6 +16,7 @@ jwt = JWTManager()
 
 def crear_aplicacion(modulo_configuracion):
     app = Flask(__name__, instance_relative_config=True)
+    CORS(app)
     app.config.from_object(modulo_configuracion)
 
     db.init_app(app)

@@ -1,3 +1,4 @@
+"""
 from unittest import TestCase
 from unittest.mock import MagicMock
 
@@ -53,3 +54,4 @@ class ConstructorUsuarioPrueba:
     def construir(cls):
         print(cls.field_id, cls.field_nombre, cls.field_apellido)
         return UsuarioPrueba(cls.field_id, cls.field_nombre, cls.field_apellido, cls.field_correo, cls.field_clave)
+"""

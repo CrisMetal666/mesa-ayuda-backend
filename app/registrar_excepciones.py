@@ -1,8 +1,9 @@
 import traceback
 from http import HTTPStatus
 
-from app.comun.excepciones import ExcepcionEntidadNoEncontrada, ExcepcionValorObligatorio
-from app.seguridad.excepciones import ExcepcionSinAutorizacion
+from app.comun.excepciones import ExcepcionEntidadNoEncontrada, ExcepcionValorObligatorio, \
+    ExcepcionCredencialesIncorrectas
+from app.comun.excepciones import ExcepcionSinAutorizacion
 
 
 def registrar_manejadores_errores(app):
@@ -18,7 +19,11 @@ def registrar_manejadores_errores(app):
     def manejar_excepcion_sin_autorizacion(e):
         return armar_mensaje_error(e, HTTPStatus.UNAUTHORIZED)
 
+    @app.errorhandler(ExcepcionCredencialesIncorrectas)
+    def manejar_excepcion_sin_autorizacion(e):
+        return armar_mensaje_error(e, HTTPStatus.BAD_REQUEST)
+
 
 def armar_mensaje_error(e, http_status):
     traceback.print_tb(e.__traceback__)
-    return {'msg': str(e)}, http_status
+    return {'mensaje': str(e)}, http_status

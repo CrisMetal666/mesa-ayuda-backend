@@ -8,3 +8,11 @@ class ExcepcionValorObligatorio(Exception):
 
 class ExcepcionLongitudValor(Exception):
     pass
+
+
+class ExcepcionSinAutorizacion(Exception):
+    pass
+
+
+class ExcepcionCredencialesIncorrectas(Exception):
+    pass
