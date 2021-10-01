@@ -16,3 +16,7 @@ class ExcepcionSinAutorizacion(Exception):
 
 class ExcepcionCredencialesIncorrectas(Exception):
     pass
+
+
+class ExcepcionCampoInvalido(Exception):
+    pass
