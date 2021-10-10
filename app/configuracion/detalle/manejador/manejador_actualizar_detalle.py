@@ -1,4 +1,6 @@
 from app.comun.comando_respuesta import ComandoRespuesta
+from app.comun.esquema.esquema_comando_respuesta import EsquemaComandoRespuesta
+from app.comun.esquema.esquema_detalle import EsquemaDetalle
 from app.seguridad.utils import obtener_usuario_id
 
 
@@ -12,4 +14,10 @@ class ManejadorActualizarDetalle:
         comando_detalle['usuario_id'] = obtener_usuario_id()
         detalle = self.fabrica_detalle.crear(comando_detalle)
         resultado = self.servicio_actualizar_detalle.ejecutar(detalle)
-        return ComandoRespuesta(resultado)
+        return self._contruir_respuesta(resultado)
+
+    def _contruir_respuesta(self, resultado):
+        esquema_comando_respuesta = EsquemaComandoRespuesta()
+        esquema_detalle = EsquemaDetalle()
+        dump_detalle = esquema_detalle.dump(resultado)
+        return esquema_comando_respuesta.dump(ComandoRespuesta(dump_detalle))
