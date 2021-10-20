@@ -28,7 +28,7 @@ manejador_actualizar_detalle = ManejadorActualizarDetalle(fabrica_detalle, servi
 def crear():
     comando_detalle = request.get_json()
     respuesta = manejador_crear_detalle.ejecutar(comando_detalle)
-    return jsonify(respuesta.__dict__), HTTPStatus.CREATED
+    return jsonify(respuesta), HTTPStatus.CREATED
 
 
 @detalle_bp.route('/', methods=['PUT'])
@@ -37,4 +37,4 @@ def crear():
 def actualizar():
     comando_detalle = request.get_json()
     respuesta = manejador_actualizar_detalle.ejecutar(comando_detalle)
-    return jsonify(respuesta.__dict__)
+    return jsonify(respuesta)

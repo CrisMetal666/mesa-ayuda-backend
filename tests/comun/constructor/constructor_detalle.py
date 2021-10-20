@@ -29,6 +29,11 @@ class ConstructorDetalle:
         return cls
 
     @classmethod
+    def usuario_id(cls, usuario_id):
+        cls.campo_usuario_id = usuario_id
+        return cls
+
+    @classmethod
     def construir(cls):
         return Detalle(
             id=cls.campo_id,
